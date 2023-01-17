@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+
+import Home from './routes/Home/Home.jsx';
+import About from './routes/About/About.jsx';
 
 function App() {
+
+  const [text, setText] = useState('This was passed from App.js');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home text={text} setText={setText} />}  />
+      <Route path="/about" element={<About text={text} setText={setText} />}  />
+    </Routes>
   );
 }
 
